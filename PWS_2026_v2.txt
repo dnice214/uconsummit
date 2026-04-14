@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UCON 2026 Public Works Summit</title>
+<style>
+:root{
+  --teal:#00818A;--teal2:#005F65;--teal3:#00A3AD;--teal4:#003d42;
+  --gold:#9C8149;--gold2:#B89A5A;--gold3:#D4B675;
+  --black:#080c0c;--black2:#0d1414;--black3:#131e1e;--black4:#1a2626;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;}body{font-family:'Segoe UI',Arial,sans-serif;background:var(--black);color:#fff;font-size:16px;}
+a{color:inherit;text-decoration:none;}
+.skip-link{position:absolute;top:-100px;left:0;background:var(--teal3);color:#000;padding:10px 20px;font-weight:700;font-size:14px;z-index:9999;border-radius:0 0 6px 0;transition:top .2s;}
+.skip-link:focus{top:0;}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #00C4D0;outline-offset:4px;border-radius:2px;box-shadow:0 0 0 6px rgba(0,196,208,.25);}
+
+/* NAV - sticky, bigger */
+nav{position:relative;top:auto;z-index:1000;background:rgba(8,12,12,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,129,138,.2);display:flex;align-items:center;padding:0 28px;min-height:84px;}
+.nav-logo{display:flex;align-items:center;gap:10px;margin-right:auto;cursor:pointer;}
+.nav-logo img{height:58px;width:auto;border-radius:3px;}
+.nav-logo-text{color:#fff;font-size:19px;font-weight:700;line-height:1.2;}
+.nav-logo-text span{color:var(--teal3);display:block;font-size:14px;letter-spacing:1px;font-weight:400;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-item{position:relative;}
+.nav-btn{background:none;border:none;color:#888;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;padding:10px 14px;border-radius:4px;transition:color .2s;}
+.nav-btn:hover{color:#fff;background:rgba(0,129,138,.15);}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#0d1414;border:1px solid rgba(0,129,138,.2);border-radius:6px;min-width:200px;z-index:100;overflow:hidden;}
+.nav-item:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:11px 18px;color:#aaa;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;white-space:nowrap;}
+.dropdown a:hover{background:rgba(0,129,138,.2);color:#fff;}
+.register-btn{background:var(--gold2);color:#000;font-weight:900;border-radius:4px;padding:11px 22px;font-size:13px;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;border:none;cursor:pointer;margin-left:12px;}
+.register-btn:hover{background:var(--gold3);}
+
+.page{display:none;}
+.page.active{display:block;}
+
+/* TICKER - bigger */
+.ticker{background:var(--teal2);overflow:hidden;height:46px;display:flex;align-items:center;}
+.ticker-inner{display:flex;animation:tick 35s linear infinite;white-space:nowrap;}
+.ticker-item{color:#fff;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:0 36px;}
+.ticker-sep{color:var(--gold2);opacity:.7;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{position:relative;min-height:560px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#001a1c 0%,var(--teal4) 35%,var(--teal2) 65%,var(--teal) 100%);}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);}
+.hero-img{position:absolute;inset:0;background:url('https://i.imgur.com/oy8qu4D.jpeg') center/cover no-repeat;opacity:.18;}
+.hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px;}
+.hero-content{position:relative;z-index:2;text-align:center;padding:40px 24px;}
+.hero-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;}
+.hero-eyebrow-line{width:32px;height:1px;background:var(--teal3);}
+.hero-eyebrow span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal3);font-weight:700;}
+.hero-logo-wrap{background:rgba(255,255,255,.95);display:inline-flex;align-items:center;gap:14px;padding:20px 32px;border-radius:8px;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.4);max-width:100%;}
+.hero-logo-img{height:240px;width:auto;display:block;max-width:100%;}
+/* hero tagline centered */
+.hero-tagline{color:#fff;font-size:16px;margin-bottom:8px;max-width:580px;line-height:1.6;text-align:center;margin-left:auto;margin-right:auto;}
+.hero-date{color:var(--gold2);font-size:18px;font-weight:700;letter-spacing:1px;margin-bottom:28px;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold2);color:#000;padding:13px 26px;border-radius:4px;font-weight:900;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:all .2s;display:inline-block;border:none;cursor:pointer;}
+.btn-gold:hover{background:var(--gold3);transform:translateY(-2px);}
+.btn-outline{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.4);color:#fff;padding:12px 26px;border-radius:4px;font-weight:700;font-size:12px;text-transform:uppercase;transition:all .2s;display:inline-block;cursor:pointer;}
+.btn-outline:hover{background:rgba(255,255,255,.2);border-color:var(--teal3);}
+
+/* STATS BAR */
+.stats-bar{background:linear-gradient(90deg,var(--teal2),var(--teal));padding:28px 48px;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:20px;}
+.stat-item{text-align:center;}
+.stat-num{font-size:36px;font-weight:900;color:#fff;line-height:1;}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:3px;font-weight:700;}
+
+/* COUNTDOWN */
+.countdown-section{background:var(--black2);padding:70px 48px;text-align:center;}
+.section-eyebrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px;}
+.section-eyebrow-line{width:36px;height:1px;background:var(--teal3);}
+.section-eyebrow span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal3);font-weight:700;}
+.cd-grid{display:flex;justify-content:center;gap:0;max-width:520px;margin:0 auto 36px;}
+.cd-block{flex:1;border:1px solid rgba(0,129,138,.2);padding:28px 16px;background:var(--black3);position:relative;}
+.cd-block:not(:last-child):after{content:'';}
+.cd-num{font-size:clamp(42px,5vw,68px);font-weight:900;color:var(--teal3);line-height:1;}
+.cd-lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9acaca;margin-top:6px;font-weight:700;}
+.cd-date{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:8px;font-weight:700;}
+.cd-sub{font-size:14px;color:#9acaca;margin-bottom:24px;}
+
+/* IMAGE STRIP */
+.img-strip{display:grid;grid-template-columns:repeat(3,1fr);height:380px;gap:3px;}
+.strip-block{position:relative;overflow:hidden;}
+
+/* SECTIONS */
+section{padding:70px 0;}
+.container{max-width:1160px;margin:0 auto;padding:0 32px;}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.section-label-line{width:28px;height:2px;background:var(--teal3);}
+.section-label span{font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--teal3);font-weight:700;}
+.section-title{font-size:clamp(28px,3.5vw,42px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-1px;margin-bottom:14px;}
+.section-sub{font-size:16px;color:#9acaca;max-width:100%;line-height:1.7;}
+
+/* WHY ATTEND */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-top:36px;background:rgba(0,129,138,.1);}
+.why-card{background:rgba(0,129,138,.1);padding:32px;border-top:3px solid transparent;transition:all .2s;}
+.why-card:hover{border-top-color:var(--teal3);background:rgba(0,129,138,.22);}
+.why-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--teal),var(--teal2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+.why-card h3{font-size:14px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;}
+.why-card p{font-size:15px;color:#9acaca;line-height:1.7;}
+.who-tag{background:var(--black2);border:1px solid rgba(0,129,138,.2);border-radius:4px;padding:7px 14px;font-size:14px;color:#9acaca;transition:all .2s;display:inline-block;margin:4px;}
+.who-tag:hover{border-color:var(--teal3);color:var(--teal3);}
+
+/* AGENCIES - bigger section */
+.agencies-section{background:var(--black2);padding:80px 0;}
+.agency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px;}
+.agency-item{background:rgba(0,129,138,.32);border:1px solid rgba(0,129,138,.55);padding:28px 28px;font-size:16px;font-weight:600;color:#fff;transition:all .2s;display:flex;align-items:center;gap:20px;text-decoration:none;}
+.agency-item:hover{background:rgba(0,95,101,.7);color:#fff;border-color:var(--teal3);}
+.agency-logo{height:90px;width:auto;max-width:150px;object-fit:contain;flex-shrink:0;transition:transform .2s,filter .2s;}
+.agency-item:hover .agency-logo{filter:brightness(1.1) drop-shadow(0 0 6px rgba(0,196,208,.4));transform:scale(1.05);}
+.agency-dot{width:6px;height:6px;background:var(--teal3);border-radius:50%;flex-shrink:0;}
+
+/* HOTEL */
+.hotel-section{background:linear-gradient(135deg,#001a1c,var(--teal4));padding:70px 0;}
+.hotel-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.hotel-visual{background:rgba(0,0,0,.3);border:1px solid rgba(0,129,138,.2);border-radius:8px;overflow:hidden;min-height:260px;display:flex;align-items:center;justify-content:center;}
+.hotel-visual img{width:100%;height:100%;object-fit:cover;}
+
+/* TESTIMONIALS */
+.testimonials{background:linear-gradient(135deg,var(--black2),var(--black4));padding:70px 0;border-top:1px solid rgba(0,129,138,.15);border-bottom:1px solid rgba(0,129,138,.15);}
+.testimonial-card{background:rgba(0,129,138,.08);border:1px solid rgba(0,129,138,.15);border-radius:8px;padding:28px;}
+.testimonial-card p{color:#fff;font-size:15px;line-height:1.7;font-style:italic;margin-bottom:14px;}
+.testimonial-card .author{color:var(--gold2);font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
+
+/* CTA */
+.cta-block{background:var(--teal2);padding:60px 0;text-align:center;}
+.cta-block h2{font-size:clamp(24px,3vw,36px);font-weight:900;text-transform:uppercase;margin-bottom:8px;}
+.cta-block p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:28px;}
+.cta-inner{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--teal2);font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:13px 26px;border:none;cursor:pointer;transition:all .2s;border-radius:4px;}
+.btn-white:hover{background:var(--gold2);color:#000;}
+.btn-cta-gold{background:var(--gold2);color:#000;font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:13px 26px;border:none;cursor:pointer;transition:background .2s;border-radius:4px;display:inline-block;}
+.btn-cta-gold:hover{background:var(--gold3);}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#001a1c,var(--teal4),var(--teal2));padding:64px 32px 48px;text-align:center;position:relative;overflow:hidden;}
+.page-hero:after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.4);}
+.page-hero-content{position:relative;z-index:1;}
+.page-hero-content h1{font-size:clamp(32px,4vw,56px);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-1px;margin-bottom:10px;}
+.page-hero-content p{font-size:15px;color:rgba(255,255,255,.65);}
+
+/* SCHEDULE */
+#sched{width:100%;border-collapse:collapse;margin-top:32px;}
+#sched tr{border-bottom:1px solid rgba(0,129,138,.15);}
+#sched td{padding:22px 24px;vertical-align:top;font-size:15px;}
+#sched .time-col{width:200px;background:#001f22;color:#5ac8c8;font-weight:700;font-size:14px;}
+#sched .content-teal{background:#00383d;color:#fff;}
+#sched .content-teal2{background:#002d30;color:#fff;}
+#sched .content-gold{background:#2a1f00;color:#fff;}
+#sched .time-gold{width:200px;background:#110d00;color:#c8a050;font-weight:700;font-size:14px;}
+#sched strong{font-size:16px;text-transform:uppercase;letter-spacing:.3px;display:block;margin-bottom:8px;color:#fff;}
+#sched .desc-teal{font-size:15px;color:#7ab8b8;line-height:1.6;margin-bottom:12px;}
+#sched .desc-gold{font-size:15px;color:#b89050;line-height:1.6;margin-bottom:12px;}
+#sched .chips{display:flex;flex-wrap:wrap;gap:8px;}
+#sched .chip-t{background:rgba(0,0,0,.3);border:1px solid rgba(0,163,173,.4);border-radius:20px;padding:5px 14px;font-size:13px;color:#60c0c0;}
+#sched .chip-g{background:rgba(0,0,0,.3);border:1px solid rgba(184,154,90,.4);border-radius:20px;padding:5px 14px;font-size:13px;color:#c09848;}
+
+/* SPEAKERS */
+.speakers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,129,138,.1);margin-top:32px;}
+.speaker-card{background:var(--black2);padding:20px 14px;text-align:center;transition:background .2s;}
+.speaker-card:hover{background:var(--black3);}
+.speaker-avatar{width:80px;height:80px;background:var(--black4);border:2px solid rgba(0,129,138,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px;font-weight:900;color:var(--teal3);border-radius:50%;overflow:hidden;}
+.speaker-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 15%;}
+.speaker-card h4{font-size:15px;font-weight:900;letter-spacing:.3px;text-transform:uppercase;margin-bottom:5px;}
+.speaker-card .org{font-size:14px;color:var(--teal3);}
+.speaker-card .topic{font-size:14px;color:#9acaca;margin-top:4px;}
+
+/* TICKETS - aligned buttons */
+.tickets-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:rgba(0,129,138,.1);margin-top:32px;}
+.ticket-card{background:rgba(0,129,138,.1);padding:36px 28px;border-top:3px solid transparent;display:flex;flex-direction:column;}
+.ticket-card.featured{border-top-color:var(--gold2);}
+.ticket-badge{display:inline-block;background:var(--gold2);color:#000;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;margin-bottom:14px;border-radius:2px;}
+.ticket-type{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9acaca;margin-bottom:10px;font-weight:700;}
+.ticket-price{font-size:52px;font-weight:900;line-height:1;color:#fff;}
+.ticket-price sup{font-size:20px;vertical-align:super;}
+.ticket-note{font-size:12px;color:#9acaca;margin-top:3px;}
+.ticket-div{width:28px;height:2px;background:var(--teal3);margin:20px 0;}
+.ticket-features{list-style:none;flex:1;}
+.ticket-features li{font-size:15px;color:#9acaca;padding:7px 0;border-bottom:1px solid rgba(0,129,138,.1);display:flex;align-items:center;gap:8px;}
+.ticket-features li:last-child{border:none;}
+.ticket-features li:before{content:'→';color:var(--teal3);font-size:10px;flex-shrink:0;}
+.ticket-btn{display:block;text-align:center;background:var(--teal);color:#fff;font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:13px;margin-top:24px;transition:background .2s;border-radius:4px;}
+.ticket-btn:hover{background:var(--teal3);}
+.ticket-btn.gold-btn{background:var(--gold2);color:#000;}
+.ticket-btn.gold-btn:hover{background:var(--gold3);}
+
+/* SPONSORS */
+.sponsor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:36px;}
+.spon-card{background:rgba(0,129,138,.12);border:1px solid rgba(0,129,138,.35);border-radius:8px;padding:24px;border-top:3px solid rgba(0,129,138,.3);transition:all .2s;display:flex;flex-direction:column;cursor:pointer;color:inherit;text-decoration:none;}
+.spon-card:hover{background:rgba(0,129,138,.25);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.spon-card.exclusive{border-top-color:var(--gold2);}
+.spon-card.sold{border-top-color:#c44;}
+.spon-card.available{border-top-color:var(--teal);}
+.spon-tier-name{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#9acaca;margin-bottom:8px;}
+.spon-price{font-size:30px;font-weight:900;color:#fff;margin-bottom:6px;}
+.spon-status{display:inline-block;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:3px;margin-bottom:14px;}
+.spon-status.exclusive{background:rgba(200,170,106,.15);color:var(--gold2);}
+.spon-status.sold{background:rgba(204,68,68,.15);color:#f07070;}
+.spon-status.available{background:rgba(0,129,138,.15);color:var(--teal3);}
+.spon-divider{width:24px;height:2px;background:rgba(0,129,138,.4);margin:14px 0;}
+.spon-perks{list-style:none;margin-bottom:16px;flex:1;}
+.spon-perks li{font-size:13px;color:#9acaca;padding:5px 0;border-bottom:1px solid rgba(0,129,138,.08);display:flex;align-items:flex-start;gap:8px;}
+.spon-perks li:last-child{border:none;}
+.spon-perks li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal3);flex-shrink:0;margin-top:5px;}
+.spon-logos{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:14px;border-top:1px solid rgba(0,129,138,.1);margin-top:auto;}
+.spon-logo-img{height:52px;width:auto;max-width:160px;object-fit:contain;background:#fff;padding:6px 10px;border-radius:4px;}
+.spon-logo-text{font-size:12px;color:var(--gold3);font-style:italic;}
+.tier-lbl{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--teal3);padding-bottom:12px;border-bottom:1px solid rgba(0,129,138,.15);margin-bottom:18px;font-weight:700;}
+.logos-row{display:flex;flex-wrap:wrap;gap:1px;}
+.logo-b{background:var(--black);border:1px solid rgba(0,129,138,.1);padding:20px 28px;font-size:20px;font-weight:700;color:#fff;transition:all .2s;}
+
+/* PHOTOS */
+.photo-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px;}
+.p-tile{background:var(--black3);aspect-ratio:4/3;position:relative;overflow:hidden;cursor:pointer;}
+.p-tile.wide{grid-column:span 2;aspect-ratio:16/7;}
+.p-tile .cap{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+
+/* FAQ */
+.acc-group{margin-bottom:32px;}
+.acc-group-title{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--teal3);padding-bottom:10px;border-bottom:1px solid rgba(0,129,138,.2);margin-bottom:12px;font-weight:700;}
+.acc-item{border-bottom:1px solid rgba(0,129,138,.1);}
+.acc-hdr{width:100%;background:none;border:none;color:#fff;text-align:left;font-size:18px;font-weight:700;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s;}
+.acc-hdr:hover,.acc-hdr.open{color:var(--teal3);}
+.acc-chev{font-size:12px;color:var(--teal3);transition:transform .2s;flex-shrink:0;}
+.acc-hdr.open .acc-chev{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 0 18px;font-size:17px;color:#9acaca;line-height:1.8;}
+.acc-body.open{display:block;}
+.acc-body a{color:var(--teal3);text-decoration:underline;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--black2);border:1px solid rgba(0,129,138,.25);border-radius:8px;padding:36px;width:90%;max-width:480px;position:relative;}
+.modal-close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#9acaca;background:none;border:none;}
+.modal h2{font-size:20px;font-weight:900;text-transform:uppercase;margin-bottom:6px;}
+.modal p{font-size:14px;color:#9acaca;margin-bottom:22px;}
+.form-group{margin-bottom:12px;}
+.form-group label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9acaca;margin-bottom:5px;}
+.form-group input{width:100%;background:var(--black3);border:1px solid rgba(0,129,138,.2);color:#fff;padding:10px 14px;font-size:14px;border-radius:4px;font-family:inherit;transition:border .2s;}
+.form-group input:focus{outline:none;border-color:var(--teal3);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-submit{width:100%;background:var(--teal);color:#fff;border:none;border-radius:4px;padding:13px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background .2s;}
+.form-submit:hover{background:var(--teal3);}
+.form-success{text-align:center;padding:24px 0;display:none;}
+.form-success .check{font-size:44px;margin-bottom:12px;}
+.form-success h3{font-size:18px;font-weight:900;text-transform:uppercase;color:var(--teal3);margin-bottom:8px;}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(0,129,138,.12);padding:52px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.footer-brand h3{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.footer-brand p{font-size:14px;color:#9acaca;line-height:1.7;margin-bottom:8px;}
+.footer-col h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal3);margin-bottom:14px;font-weight:700;}
+.footer-col a{display:block;font-size:14px;color:#9acaca;margin-bottom:8px;transition:color .2s;}
+.footer-col a:hover{color:var(--teal3);}
+.footer-chair{display:flex;align-items:center;gap:12px;background:var(--black2);border:1px solid rgba(0,129,138,.12);border-radius:6px;padding:12px 16px;margin-top:16px;}
+.chair-av{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.chair-av img{width:100%;height:100%;object-fit:cover;}
+.chair-info .name{font-size:13px;font-weight:700;color:#fff;}
+.chair-info .role{font-size:11px;color:var(--teal3);}
+.chair-info .contact{font-size:11px;color:#9acaca;margin-top:2px;}
+.footer-bottom{border-top:1px solid rgba(0,129,138,.08);padding-top:20px;text-align:center;font-size:12px;color:#9acaca;}
+.footer-bottom a{color:var(--teal3);}
+
+/* ASSET GRID */
+.asset-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,129,138,.1);margin-bottom:36px;}
+.asset-card{background:var(--black2);padding:24px;text-align:center;transition:background .2s;cursor:pointer;}
+.asset-card:hover{background:var(--black3);}
+.asset-icon{font-size:32px;margin-bottom:10px;}
+.asset-name{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.asset-type{font-size:11px;color:var(--teal3);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hotel-grid,.footer-grid{grid-template-columns:1fr;}
+  .img-strip{grid-template-columns:1fr 1fr!important;height:auto;}
+  .strip-block{aspect-ratio:16/9;}
+  section{padding:52px 0;}
+  #sched .time-col,#sched .time-gold{width:120px;}
+  .stats-bar{padding:24px;gap:16px;}
+  .stat-num{font-size:28px;}
+  .speakers-grid{grid-template-columns:repeat(3,1fr)!important;}
+  .sponsor-grid{grid-template-columns:1fr!important;}
+  .agency-grid{grid-template-columns:repeat(2,1fr)!important;}
+}
+@media(max-width:600px){
+  nav{padding:0 12px;min-height:52px;}
+  .nav-links .nav-btn{display:none;}
+  .nav-logo img{height:28px;}
+  .nav-logo-text{font-size:11px;}
+  .register-btn{padding:7px 12px;font-size:10px;margin-left:6px;}
+  .hero{min-height:auto;}
+  .hero-content{padding:28px 16px;}
+  .hero-logo-wrap{padding:12px 16px;width:auto;max-width:85vw;}
+  .hero-logo-img{height:auto;width:auto;max-height:120px;max-width:75vw;}
+  .hero-tagline{font-size:14px;}
+  .hero-date{font-size:15px;}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px;}
+  .btn-gold,.btn-outline{width:100%;max-width:320px;text-align:center;padding:14px 20px;}
+  .ticker{height:30px;}
+  .ticker-item{font-size:9px;padding:0 20px;}
+  .stats-bar{padding:20px 16px;gap:12px;}
+  .stat-num{font-size:24px;}
+  .countdown-section{padding:40px 16px;}
+  .cd-num{font-size:42px;}
+  .img-strip{grid-template-columns:1fr!important;height:auto;}
+  section{padding:40px 0;}
+  .container{padding:0 16px;}
+  .section-title{font-size:clamp(22px,7vw,32px);letter-spacing:-.5px;}
+  .why-grid{grid-template-columns:1fr;}
+  .why-card{padding:20px;}
+  .agency-grid{grid-template-columns:1fr!important;}
+  .hotel-grid{grid-template-columns:1fr;}
+  .hotel-visual{display:none;}
+  .cta-block{padding:40px 16px;}
+  .cta-inner{flex-direction:column;align-items:center;}
+  .btn-white,.btn-cta-gold{width:100%;max-width:320px;text-align:center;}
+  .page-hero{padding:40px 16px 32px;}
+  .page-hero-content h1{font-size:clamp(26px,8vw,40px);}
+  .container:has(#sched){overflow-x:auto;}
+  #sched{font-size:12px;min-width:480px;}
+  #sched td{padding:12px 10px;}
+  #sched .time-col,#sched .time-gold{width:80px;font-size:11px;}
+  .speakers-grid{grid-template-columns:repeat(3,1fr)!important;}
+  .speaker-card{padding:14px 8px;}
+  .speaker-card h4{font-size:10px;}
+  .speaker-card .org,.speaker-card .topic{font-size:10px;}
+  .speaker-avatar{width:56px;height:56px;font-size:16px;}
+  .tickets-grid{grid-template-columns:1fr;}
+  .ticket-card{padding:24px 18px;}
+  .ticket-price{font-size:44px;}
+  .sponsor-grid{grid-template-columns:1fr!important;}
+  .photo-mosaic{grid-template-columns:1fr;}
+  .p-tile.wide{grid-column:span 1;aspect-ratio:16/9;}
+  .acc-hdr{font-size:14px;}
+  .acc-body{font-size:14px;}
+  .footer-grid{grid-template-columns:1fr;gap:24px;}
+  footer{padding:36px 0 20px;}
+  .footer-chair{flex-direction:column;text-align:center;}
+  .modal{padding:20px 14px;width:95%;}
+  .form-row{grid-template-columns:1fr;}
+  .asset-grid{grid-template-columns:repeat(2,1fr)!important;}
+}
+
+/* PER-SESSION HOVER */
+.session-block{cursor:default;border-radius:4px;padding:4px;transition:background .2s;margin-bottom:4px;}
+.session-block:hover{background:rgba(0,0,0,.2);}
+.session-block .desc-teal,
+.session-block .desc-gold{
+  max-height:0;overflow:hidden;opacity:0;margin-bottom:0;
+  transition:max-height .35s ease,opacity .3s ease,margin-bottom .3s ease;
+}
+.session-block:hover .desc-teal,
+.session-block:hover .desc-gold{
+  max-height:300px;opacity:1;margin-bottom:12px;
+}
+.session-block strong::after{
+  content:' ↓ hover for details';
+  font-size:10px;font-weight:400;letter-spacing:.5px;
+  color:rgba(255,255,255,.3);text-transform:uppercase;margin-left:8px;vertical-align:middle;
+}
+.session-block:hover strong::after{display:none;}
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;background:none;border:none;padding:0;margin-left:16px;flex-shrink:0;}
+.hamburger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:all .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(8,12,12,.98);border-bottom:1px solid rgba(0,129,138,.3);padding:16px 0;z-index:999;}
+.mobile-menu.open{display:block;}
+.mobile-menu a,.mobile-menu button{display:block;width:100%;text-align:left;padding:14px 28px;color:#ccc;font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:none;border:none;cursor:pointer;text-decoration:none;transition:color .2s,background .2s;}
+.mobile-menu a:hover,.mobile-menu button:hover{color:#fff;background:rgba(0,129,138,.15);}
+.mobile-menu .mobile-section{padding:8px 28px 4px;font-size:10px;letter-spacing:2px;color:var(--teal3);font-weight:700;text-transform:uppercase;border-top:1px solid rgba(0,129,138,.15);margin-top:8px;}
+.mobile-menu .mobile-register{margin:12px 28px 8px;display:block;text-align:center;background:var(--gold2);color:#000;font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:14px;border-radius:4px;}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  nav{padding:0 16px;}
+}
+</style>
+
+<script>
+function toggleMobileMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMobileMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  if(menu) menu.classList.remove('open');
+  if(btn) btn.classList.remove('open');
+}
+document.addEventListener('click', function(e){
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  if(menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)){
+    closeMobileMenu();
+  }
+});
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  var el=document.getElementById('page-'+id);
+  if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+}
+// Countdown - wrapped in DOMContentLoaded so elements exist
+document.addEventListener('DOMContentLoaded',function(){
+  function updateCountdown(){
+    var target=new Date('2026-05-28T07:00:00-07:00');
+    var now=new Date();
+    var diff=target-now;
+    if(diff<=0){
+      document.getElementById('cd-days').textContent='0';
+      document.getElementById('cd-hours').textContent='00';
+      document.getElementById('cd-mins').textContent='00';
+      document.getElementById('cd-secs').textContent='00';
+      return;
+    }
+    var d=Math.floor(diff/86400000);
+    var h=Math.floor((diff%86400000)/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    var s=Math.floor((diff%60000)/1000);
+    document.getElementById('cd-days').textContent=d;
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+});
+function toggleAcc(btn){
+  var body=btn.nextElementSibling;
+  var isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.acc-hdr.open').forEach(h=>{
+    h.classList.remove('open');
+    h.setAttribute('aria-expanded','false');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    body.classList.add('open');
+  }
+}
+function openModal(){
+  document.getElementById('modal').classList.add('open');
+  document.querySelector('.modal-close').focus();
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+function submitForm(){
+  var first=document.getElementById('fFirst').value.trim();
+  var last=document.getElementById('fLast').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+  var company=document.getElementById('fCompany').value.trim();
+  if(!first||!last||!email||!company){alert('Please fill in all required fields.');return;}
+  document.getElementById('formContent').style.display='none';
+  var success=document.getElementById('formSuccess');
+  success.style.display='block';
+  success.focus();
+}
+</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<header style="position:sticky;top:0;z-index:1000;">
+<nav aria-label="Main navigation">
+  <div class="nav-logo" onclick="showPage('home')" role="button" tabindex="0" aria-label="UCON Public Works Summit, go to home page" onkeydown="if(event.key==='Enter')showPage('home')">
+    <img src="https://drive.google.com/thumbnail?id=1ifhkVydkkArPYyMktqTowQZsFphWGRyT&sz=w400" alt="UCON Public Works Summit">
+    <div class="nav-logo-text">PUBLIC WORKS SUMMIT<span>MAY 28, 2026 · ANAHEIM</span></div>
+  </div>
+  <div class="nav-links">
+    <div class="nav-item">
+      <button class="nav-btn" onclick="showPage('home')">About ▾</button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100);return false;">Agencies</a>
+        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100);return false;">Why Attend</a>
+        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('hotel').scrollIntoView({behavior:'smooth'}),100);return false;">Hotel Room Block</a>
+        <a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a>
+        <a href="https://www.unitedcontractors.org/who-we-are/ucon-team" target="_blank">Meet the UCON Team ↗</a>
+        <a href="#" onclick="showPage('faq');return false;">FAQ</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button class="nav-btn" onclick="showPage('program')">Program ▾</button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('program');window.scrollTo({top:0});return false;">Schedule</a>
+        <a href="#" onclick="showPage('program');setTimeout(()=>document.getElementById('speakers').scrollIntoView({behavior:'smooth'}),100);return false;">Speakers</a>
+      </div>
+    </div>
+    <div class="nav-item"><button class="nav-btn" onclick="showPage('tickets')">Tickets</button></div>
+    <div class="nav-item"><button class="nav-btn" onclick="showPage('sponsor')">Sponsor</button></div>
+    <div class="nav-item"><button class="nav-btn" onclick="showPage('photos')">Photos</button></div>
+    <div class="nav-item"><button class="nav-btn" onclick="showPage('media')">Media Kit</button></div>
+    <div class="nav-item"><button class="nav-btn" onclick="showPage('faq')">FAQ</button></div>
+    <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="register-btn">Register Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button onclick="showPage('home');closeMobileMenu()">Home</button>
+  <div class="mobile-section">Program</div>
+  <button onclick="showPage('program');window.scrollTo({top:0});closeMobileMenu()">Schedule</button>
+  <button onclick="showPage('program');setTimeout(()=>document.getElementById('speakers').scrollIntoView({behavior:'smooth'}),100);closeMobileMenu()">Speakers</button>
+  <button onclick="showPage('tickets');closeMobileMenu()">Tickets</button>
+  <button onclick="showPage('sponsor');closeMobileMenu()">Sponsor</button>
+  <button onclick="showPage('photos');closeMobileMenu()">Photos</button>
+  <button onclick="showPage('media');closeMobileMenu()">Media Kit</button>
+  <div class="mobile-section">About</div>
+  <button onclick="showPage('faq');closeMobileMenu()">FAQ</button>
+  <button onclick="window.open('https://www.unitedcontractors.org','_blank');closeMobileMenu()">About UCON ↗</button>
+  <button onclick="window.open('https://www.unitedcontractors.org/who-we-are/ucon-team','_blank');closeMobileMenu()">Meet the UCON Team ↗</button>
+  <button onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100);closeMobileMenu()">Agencies</button>
+  <button onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100);closeMobileMenu()">Why Attend</button>
+  <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="mobile-register" onclick="closeMobileMenu()">Register Now →</a>
+</div>
+</header>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+<main id="main-content">
+  <div class="hero">
+    <div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-img"></div><div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span>United Contractors · Annual Flagship Event</span><div class="hero-eyebrow-line"></div></div>
+      <div class="hero-logo-wrap"><img src="https://i.imgur.com/2HXNTGT.jpeg" alt="UCON Public Works Summit" class="hero-logo-img"></div>
+      <div class="hero-tagline">Where California's contractors, agencies, labor, and partners come together to lead, connect, and shape the industry's future.</div>
+      <div class="hero-date">📅 May 28, 2026 &nbsp;·&nbsp; Hilton Anaheim, CA</div>
+      <div class="hero-btns">
+        <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-gold">Register Now — From $195</a>
+        <button class="btn-outline" onclick="showPage('program')">View Program</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker"><div class="ticker-inner">
+    <span class="ticker-item">May 28, 2026 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Hilton Anaheim <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">7:00 AM – 4:00 PM PDT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Member $195 · Non-Member $295 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Sponsorship Deadline May 7 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Hotel Block Closes May 6 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">12 Agencies Attending <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">5th Annual Summit <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">May 28, 2026 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Hilton Anaheim <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">7:00 AM – 4:00 PM PDT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Member $195 · Non-Member $295 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Sponsorship Deadline May 7 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Hotel Block Closes May 6 <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">12 Agencies Attending <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">5th Annual Summit <span class="ticker-sep">·</span></span>
+  </div></div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><circle cx="18" cy="14" r="7" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/><circle cx="34" cy="14" r="7" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/><path d="M4 42c0-8 6-13 14-13s14 5 14 13" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M32 29c4-1 8 1 11 4s5 6 5 9" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/></svg><div class="stat-num">400+</div><div class="stat-label">Attendees</div></div>
+    <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><rect x="8" y="6" width="36" height="28" rx="3" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/><path d="M6 20h40M16 6v8M36 6v8" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/></svg><div class="stat-num">12</div><div class="stat-label">Agency Partners</div></div>
+    <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><rect x="18" y="8" width="10" height="16" rx="5" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/><path d="M12 22c0 7 4 12 11 12s11-5 11-12" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round" fill="none"/><line x1="23" y1="34" x2="23" y2="42" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="42" x2="30" y2="42" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/></svg><div class="stat-num">20+</div><div class="stat-label">Industry Speakers</div></div>
+    <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><rect x="6" y="10" width="40" height="32" rx="3" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/><path d="M6 20h40M16 6v8M36 6v8" stroke="rgba(255,255,255,0.8)" stroke-width="2"/></svg><div class="stat-num">10</div><div class="stat-label">Sessions</div></div>
+    <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><path d="M26 6l4 12h13l-10 8 4 12-11-8-11 8 4-12-10-8h13z" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><div class="stat-num">#1</div><div class="stat-label">Public Works Event in CA</div></div>
+  </div>
+
+  <div class="countdown-section">
+    <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span>Summit Countdown</span><div class="section-eyebrow-line"></div></div>
+    <div class="cd-grid">
+      <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-mins">--</div><div class="cd-lbl">Minutes</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-secs">--</div><div class="cd-lbl">Seconds</div></div>
+    </div>
+    <div class="cd-date">May 28, 2026 · Hilton Anaheim, CA</div>
+    <div class="cd-sub">Breakfast and lunch provided · 7:00 AM – 4:00 PM PDT</div>
+    <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-gold" style="display:inline-block;margin-top:4px;">Register Now — From $195</a>
+  </div>
+
+  <div class="img-strip">
+    <div class="strip-block" style="background:url('https://i.imgur.com/4BIrsLc.jpeg') center 10%/cover no-repeat;"></div>
+    <div class="strip-block" style="background:url('https://i.imgur.com/kOVLpjS.jpeg') center 20%/cover no-repeat;"></div>
+    <div class="strip-block" style="background:url('https://i.imgur.com/Kj0vdNW.jpeg') center 15%/cover no-repeat;"></div>
+  </div>
+
+  <!-- AGENCIES ATTENDING - moved above Why Attend -->
+  <div class="agencies-section" id="agencies">
+    <div class="container">
+      <div class="section-label"><div class="section-label-line"></div><span>Agencies Attending</span></div>
+      <h2 class="section-title">Direct Access to California's<br>Leading Public Works Agencies</h2>
+      <p class="section-sub">These agencies actively participate in panels, discussions, and dialogue with Public Works Summit attendees.</p>
+      <div class="agency-grid">
+        <a href="https://dot.ca.gov/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1_9JApaIulHm2i1lKrrXIErHeq6KsMa_S&sz=w300" alt="Caltrans">Caltrans</a>
+        <a href="https://www.pw.lacounty.gov/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1Z0uhWzGDHh7ux6hfBceLbI_LGzObvxq2&sz=w300" alt="LA County Public Works">LA County Public Works</a>
+        <a href="http://metro.net" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1keRmKzX0BtPbcFokjMUYe4k5scuv7DrR&sz=w300" alt="Los Angeles Metro">Los Angeles Metro</a>
+        <a href="https://www.lawa.org/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1JekxTlxaRanegejR6HwdhGEZejI-2NkU&sz=w300" alt="Los Angeles World Airports">Los Angeles World Airports</a>
+        <a href="https://www.mwdh2o.com/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1KDXSA275zbPGDfXuok1W0PqFaISZqrfV&sz=w300" alt="Metropolitan Water District">Metropolitan Water District</a>
+        <a href="https://metrolinktrains.com/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1RG5hBdWUl8zLX41QSuckbv2eeGdbJ9jD&sz=w300" alt="Metrolink">Metrolink</a>
+        <a href="http://www.octa.net" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=12-WD-evDDtCM5kUs6vNO0bc3m9u-n45R&sz=w300" alt="Orange County Transportation Authority">Orange County Transportation Authority</a>
+        <a href="http://www.ocwd.com" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1cKJhA1Q26Bx621R6B8qCV6LjbPRVmf2u&sz=w300" alt="Orange County Water District">Orange County Water District</a>
+        <a href="http://www.polb.com" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1yKT-bj5mMrCEF7PqpsH65pDVB18w7bXf&sz=w300" alt="Port of Long Beach">Port of Long Beach</a>
+        <a href="https://portoflosangeles.org/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1mIrmeFlsTirpsTBZIX8xef6P8OkyE79R&sz=w300" alt="Port of Los Angeles">Port of Los Angeles</a>
+        <a href="https://www.rctc.org/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1NJwmsDVb3DTgvQi2qAFSTyAZz054DPlY&sz=w300" alt="Riverside County Transportation Commission">Riverside County Transportation Commission</a>
+        <a href="https://sandag.org/" target="_blank" rel="noopener noreferrer" class="agency-item"><img class="agency-logo" src="https://drive.google.com/thumbnail?id=1xmiCb-fhGXUWxKdg8vTeqAZSn6phTwSh&sz=w300" alt="SANDAG">SANDAG</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY ATTEND -->
+  <section id="why-attend">
+    <div class="container">
+      <div class="section-label"><div class="section-label-line"></div><span>Why Attend</span></div>
+      <h2 class="section-title">This Is Where California Builds the Future,<br><span style="color:var(--teal3);">Together.</span></h2>
+      <p class="section-sub">The Summit isn't just a conference — it's the annual gathering where decisions get made, partnerships are forged, and the people building California show up for each other.</p>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🤝</div><h3>Build the Relationships That Matter</h3><p>Meet face-to-face with public agencies, decision-makers, and industry leaders in a trusted, neutral environment.</p></div>
+        <div class="why-card"><div class="why-icon">🏛️</div><h3>Direct Insight from Public Agencies</h3><p>Hear directly from agencies about priorities, programs, funding outlooks, and upcoming opportunities.</p></div>
+        <div class="why-card"><div class="why-icon">📈</div><h3>Stay Ahead of Industry Change</h3><p>Policy shifts, workforce challenges, market constraints — the Summit equips attendees with timely, actionable insight.</p></div>
+        <div class="why-card"><div class="why-icon">⭐</div><h3>See and Be Seen as a Leader</h3><p>The Summit attracts a senior, influential audience across contractors, agencies, unions, and partners.</p></div>
+        <div class="why-card"><div class="why-icon">💡</div><h3>Walk Away with Practical Value</h3><p>Every session is designed with intention. You'll leave with clear takeaways you can bring back to your team.</p></div>
+        <div class="why-card"><div class="why-icon">🌉</div><h3>A Forum Built for Unity & Trust</h3><p>Competitors and collaborators come together to elevate dialogue, foster alignment, and strengthen trust.</p></div>
+      </div>
+      <div style="background:var(--black2);border:1px solid rgba(0,129,138,.15);border-radius:6px;padding:28px;margin-top:24px;">
+        <h3 style="font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;color:var(--teal3);">Who You'll Be in the Room With</h3>
+        <div style="margin:-4px;"><span class="who-tag">Owners &amp; Principals</span><span class="who-tag">Business Development Leaders</span><span class="who-tag">Estimators &amp; Preconstruction</span><span class="who-tag">HR, Labor Relations &amp; Compliance</span><span class="who-tag">Union Leaders &amp; Representatives</span><span class="who-tag">Public Works Directors</span><span class="who-tag">Agency Representatives</span><span class="who-tag">Industry Suppliers &amp; Vendors</span><span class="who-tag">Construction Attorneys</span><span class="who-tag">Insurance &amp; Risk Professionals</span><span class="who-tag">Small, Emerging &amp; DBE Businesses</span><span class="who-tag">Large ENR-Level Contractors</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOTEL -->
+  <section id="hotel" class="hotel-section">
+    <div class="container">
+      <div class="hotel-grid">
+        <div>
+          <div class="section-label"><div class="section-label-line"></div><span>Hotel Room Block</span></div>
+          <h2 class="section-title">Hilton Anaheim</h2>
+          <p style="color:var(--teal3);font-size:14px;margin-bottom:18px;">777 W. Convention Way, Anaheim, CA 92802</p>
+          <p style="font-size:16px;color:#9acaca;line-height:1.7;margin-bottom:22px;">Stay steps from the venue at the official hotel of the 2026 Public Works Summit. A discounted room block has been reserved exclusively for Summit attendees.</p>
+          <p style="font-size:36px;font-weight:900;color:var(--gold3);margin-bottom:12px;">$203 <span style="font-size:18px;font-weight:400;color:#9acaca;">/ night</span></p>
+          <p style="font-size:14px;color:#9acaca;margin-bottom:22px;">⚠️ Room block closes May 6, 2026. Reserve early — rooms will sell out.</p>
+          <a href="https://book.passkey.com/gt/221068762?gtid=2af17d2fab654a6ccd1b564976f79aef" target="_blank" class="btn-gold" style="display:inline-block;">Reserve Your Room →</a>
+        </div>
+        <div class="hotel-visual">
+          <img src="https://drive.google.com/thumbnail?id=1qWc7NgJhp-btYsda0pHLbBjYWpZu5a3c&sz=w800" alt="Hilton Anaheim" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS - Metrolink/SCRRA removed, 2 rows of 3 -->
+  <div class="testimonials">
+    <div class="container">
+      <div class="section-label"><div class="section-label-line"></div><span>What Attendees Say</span></div>
+      <h2 class="section-title">Voices from the Summit</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:28px;">
+        <div class="testimonial-card"><p>"I have attended the UCON Public Works Summit for the last four years, and I learn different things every time I go. Public Works is an important part of the Southern California construction market, and all contractors can benefit from the information gained there."</p><div class="author">— Dave Sorem · Mike Bubalo Construction</div></div>
+        <div class="testimonial-card"><p>"Great speakers and topics. I was able to do a lot of networking with various Unions, Contractors and Consultants and get the word out about our upcoming work."</p><div class="author">— SANDAG</div></div>
+        <div class="testimonial-card"><p>"The event was filled with folks from different trades and with different levels of expertise, but there was such a sense of unity among all. Working hand-in-hand is the only way to have continued growth."</p><div class="author">— Laborers Training School and Apprenticeship</div></div>
+        <div class="testimonial-card"><p>"Outstanding event with great opportunities to connect with leadership at various public entities and to preview upcoming work across California. Well worth the investment and a day's time."</p><div class="author">— MasTec / American Civil Constructors West</div></div>
+        <div class="testimonial-card"><p>"The opportunity to network with both industry and Agency leaders while learning about what's on the horizon was fantastic. UCON always puts on a well-worthwhile event."</p><div class="author">— GLA Partnering</div></div>
+        <div class="testimonial-card"><p>"Thanks to UCON for putting together these high-quality events with well respected speakers, interesting topics, and networking opportunities!"</p><div class="author">— Labor Management Compliance Council</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Ready to Be Part of It?</h2>
+    <p>May 28, 2026 · Hilton Anaheim · Breakfast &amp; Lunch Provided</p>
+    <div class="cta-inner">
+      <button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button>
+      <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a>
+    </div>
+  </div>
+
+  
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>UCON Public Works Summit 2026</h3>
+          <p>California's premier gathering of the public works community.</p>
+          <p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div>
+        <div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div>
+        <div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div>
+      </div>
+      <div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div>
+    </div>
+  </footer>
+</main>
+</div>
+
+<!-- ===== PROGRAM ===== -->
+<div id="page-program" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Program &amp; Agenda</h1><p>May 28, 2026 · Hilton Anaheim · 7:00 AM – 4:00 PM PDT</p></div></div>
+  <section>
+    <div class="container">
+      <div class="section-label"><div class="section-label-line"></div><span>Full Day Agenda</span></div>
+      <h2 class="section-title">2026 Summit Schedule</h2>
+      <p class="section-sub">Breakfast and lunch provided. 10 sessions delivering actionable insights from California's leading agencies and industry experts.</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table id="sched">
+        <tr><td class="time-col">7:00 – 8:00 AM</td><td class="content-teal"><div class="session-block"><strong>Registration &amp; Networking Breakfast</strong><p class="desc-teal">Hosted breakfast while connecting with contractors, agency reps, and partners before the day's programming begins.</p></div></td></tr>
+        <tr><td class="time-col">8:00 – 8:55 AM</td><td class="content-teal2"><div class="session-block"><strong>Public Works Summit Plenary Session</strong><p class="desc-teal">Welcome remarks &amp; keynote address. Setting the stage for the day ahead with insights on California's public works ecosystem.</p></div></td></tr>
+        <tr><td class="time-col">9:00 – 10:20 AM</td><td class="content-teal"><div class="session-block"><strong>Recruitment &amp; Retention Strategies in Construction</strong><p class="desc-teal">Construction faces a workforce crunch—labor shortages, an aging workforce, and 20–30%+ turnover—putting schedules and profitability at risk. To compete, companies must pair modern recruitment with retention: strengthen employer brand, pay and benefits, and a safety-first culture; use technology; and offer clear career paths and inclusive workplaces.</p><div class="chips"><span class="chip-t">Bill Boyd · Sully-Miller</span><span class="chip-t">Sarah Tacker</span></div></div></td></tr>
+        <tr>
+          <td class="time-gold">10:30 – 11:30 AM</td>
+          <td class="content-gold">
+            <div class="session-block" style="margin-bottom:4px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#7a6030;letter-spacing:.5px;">Session A</span><strong>California's Water Future</strong><p class="desc-gold">California water providers must deliver safe, reliable, affordable service amid recurring floods and droughts. This discussion explores how smarter planning, approval, and construction of water projects can capture more water in wet years, reduce flooding, and lessen shortages and rate spikes in dry years.</p><div class="chips"><span class="chip-g">Adan Ortega · MWD (Chair)</span><span class="chip-g">Charley Wilson · SoCal Water Coalition</span><span class="chip-g">Susan Kennedy · Cadiz</span></div></div>
+            <div class="session-block" style="border-top:1px solid rgba(184,154,90,.2);padding-top:20px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#7a6030;letter-spacing:.5px;">Session B</span><strong>California's Infrastructure: Transportation Funding</strong><p class="desc-gold">This panel breaks down how California funds roads, bridges, and transit through a complex mix of federal, state, and local sources. It highlights major drivers such as the federal IIJA, state fuel taxes, and SB 1 (Road Repair and Accountability Act of 2017).</p><div class="chips"><span class="chip-g">Jon Switalski · Rebuild SoCal Partnership</span><span class="chip-g">Kiana Valentine · Politico Group</span></div></div>
+          </td>
+        </tr>
+        <tr><td class="time-col">11:30 AM – 12:45 PM</td><td class="content-teal2"><div class="session-block"><strong>Networking Lunch</strong><p class="desc-teal">Hosted lunch with structured networking opportunities with agency reps and peers.</p></div></td></tr>
+        <tr><td class="time-col">12:45 – 1:35 PM</td><td class="content-teal"><div class="session-block"><strong>California's Economic Future</strong><p class="desc-teal">California's 2026–2030 outlook shifts from rapid, tech-led expansion to steadier, innovation-driven growth. The state aims to lead in AI, clean tech, and aerospace while confronting high living costs, regional gaps, and a cooling labor market—driving more "bottom-up" regional development strategies.</p><div class="chips"><span class="chip-t">Mark Schniepp, Ph.D. · California Forecast</span></div></div></td></tr>
+        <tr>
+          <td class="time-gold">1:45 – 2:45 PM</td>
+          <td class="content-gold">
+            <div class="session-block" style="margin-bottom:4px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#7a6030;letter-spacing:.5px;">Session A</span><strong>Caltrans Mentor Protégé Program</strong><p class="desc-gold">The Caltrans Construction Mentor Protégé Program helps small, disadvantaged, and veteran-owned firms build Caltrans fluency and technical capacity to compete for and deliver Caltrans projects. It pairs eligible protégés (licensed contractors in business at least one year) with experienced mentors through workshops and mentoring sessions.</p><div class="chips"><span class="chip-g">Bonny Nyaga · Caltrans 4</span></div></div>
+            <div class="session-block" style="border-top:1px solid rgba(184,154,90,.2);padding-top:20px;margin-bottom:4px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#7a6030;letter-spacing:.5px;">Session B</span><strong>Small Business Participation in Public Works Construction</strong><p class="desc-gold">In Southern California, Caltrans and LA Metro offer opportunities for small, disadvantaged, and veteran-owned businesses through SBE programs. Caltrans provides mentoring and workshops, while LA Metro sets SBE/DBE goals and offers support to help small firms secure contracts for major infrastructure projects.</p><div class="chips"><span class="chip-g">David DeLuz · Caltrans</span></div></div>
+            <div class="session-block" style="border-top:1px solid rgba(184,154,90,.2);padding-top:20px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#7a6030;letter-spacing:.5px;">Session C</span><strong>Navigating OSHA: Following the Rules, Keeping it Safe</strong><p class="desc-gold">This session covers how to comply with Cal/OSHA by building a proactive safety program, anchored by the required Injury and Illness Prevention Program (IIPP) to identify and correct hazards. It also reviews how California standards often exceed federal OSHA and how the 1973 Act supports enforcement, training, and education.</p><div class="chips"><span class="chip-g">Michael Donlon · United Contractors</span></div></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="time-col">3:00 – 4:00 PM</td>
+          <td class="content-teal">
+            <div class="session-block" style="margin-bottom:4px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#3a8080;letter-spacing:.5px;">Session A</span><strong>Caltrans Agency Programs</strong><p class="desc-teal">This panel highlights upcoming infrastructure projects among Southern California regional agencies. It is your opportunity to gain a clear view into the vast construction potential and gain an inside look at billions of dollars of projects coming down the pipeline.</p><div class="chips"><span class="chip-t">John Yang · Caltrans 7</span><span class="chip-t">Christy Connors · Caltrans 8</span><span class="chip-t">Son Nguyen · Caltrans 12</span></div></div>
+            <div class="session-block" style="border-top:1px solid rgba(0,163,173,.2);padding-top:20px;margin-bottom:4px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#3a8080;letter-spacing:.5px;">Session B</span><strong>Agency Programs — LAWA &amp; Port of LA</strong><p class="desc-teal">Upcoming capital programs and opportunities from LAWA and the Port of Los Angeles.</p><div class="chips"><span class="chip-t">Shaun Shahrestani · Port of LA</span><span class="chip-t">Armond Morad · POLB</span></div></div>
+            <div class="session-block" style="border-top:1px solid rgba(0,163,173,.2);padding-top:20px;"><span style="display:inline-block;margin-bottom:6px;font-size:11px;color:#3a8080;letter-spacing:.5px;">Session C</span><strong>Building Information Modeling for Infrastructure, BIM4I</strong><p class="desc-teal">This presentation introduces BIM for Infrastructure (BIM4I): using digital 3D models to plan, design, build, and manage assets such as roads, bridges, and utilities. It focuses on adopting BIM in design and construction and carrying model data forward to operations, maintenance, and asset management to support full lifecycle performance.</p><div class="chips"><span class="chip-t">Amy Fong · Caltrans</span></div></div>
+          </td>
+        </tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="speakers" style="background:var(--black2);padding:70px 0;">
+    <div class="container">
+      <div class="section-label"><div class="section-label-line"></div><span>Speakers</span></div>
+      <h2 class="section-title">2026 Summit Speakers</h2>
+      <div class="speakers-grid">
+        <div class="speaker-card"><div class="speaker-avatar">BB</div><h4>Bill Boyd</h4><div class="org">Sully-Miller</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/bnQXTan.jpeg" alt="Abbigail Brown"></div><h4>Abbigail Brown</h4><div class="org">CPM Logistics</div></div>
+        
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/xs8CUSx.jpeg" alt="Christy Connors"></div><h4>Christy Connors</h4><div class="org">Caltrans 8</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/DGctoRM.jpeg" alt="Michael Donlon"></div><h4>Michael Donlon</h4><div class="org">United Contractors</div></div>
+        <div class="speaker-card"><div class="speaker-avatar">AF</div><h4>Amy Fong</h4><div class="org">Caltrans</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/J8h01sQ.png" alt="Susan Kennedy"></div><h4>Susan Kennedy</h4><div class="org">Cadiz</div></div>
+        
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/3RZaVnj.jpeg" alt="Son Nguyen"></div><h4>Son Nguyen</h4><div class="org">Caltrans 12</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/XWSGwCT.jpeg" alt="Bonny Nyaga"></div><h4>Bonny Nyaga</h4><div class="org">Caltrans 4</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/eVZZV1D.jpeg" alt="Adan Ortega"></div><h4>Adan Ortega Jr.</h4><div class="org">Metropolitan Water District</div></div>
+        <div class="speaker-card"><div class="speaker-avatar">MS</div><h4>Mark Schniepp PhD</h4><div class="org">California Forecast</div></div>
+        <div class="speaker-card"><div class="speaker-avatar">SS</div><h4>Shaun Shahrestani</h4><div class="org">Port of Los Angeles</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/JMUb2n6.jpeg" alt="Jon Switalski"></div><h4>Jon Switalski</h4><div class="org">Rebuild SoCal Partnership</div></div>
+        <div class="speaker-card"><div class="speaker-avatar">ST</div><h4>Sarah Tacker</h4></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/hRmzotT.jpeg" alt="Kiana Valentine"></div><h4>Kiana Valentine</h4><div class="org">Politico Group</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/drYo5PM.jpeg" alt="Charley Wilson"></div><h4>Charley Wilson</h4><div class="org">SoCal Water Coalition</div></div>
+        <div class="speaker-card"><div class="speaker-avatar"><img src="https://i.imgur.com/tA5BA9l.jpeg" alt="John Yang"></div><h4>John Yang</h4><div class="org">Caltrans 7</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-block"><h2>Secure Your Seat Today</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Get Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- ===== TICKETS ===== -->
+<div id="page-tickets" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Tickets &amp; Registration</h1><p>May 28, 2026 · Hilton Anaheim · Breakfast &amp; Lunch Included</p></div></div>
+  <section><div class="container">
+    <div class="section-label"><div class="section-label-line"></div><span>Registration</span></div>
+    <h2 class="section-title">Choose Your Ticket</h2>
+    <p class="section-sub">All tickets include full-day access, sessions, networking, breakfast, lunch, and vendor exhibit.</p>
+    <div class="tickets-grid">
+      <div class="ticket-card featured"><div class="ticket-badge">Best Value</div><div class="ticket-type">UCON Member</div><div class="ticket-price"><sup>$</sup>195</div><div class="ticket-note">per person</div><div class="ticket-div"></div><ul class="ticket-features"><li>Full-day Summit access</li><li>All 10 Sessions</li><li>Networking Breakfast</li><li>Networking Lunch</li><li>Vendor Exhibit Access</li><li>Direct Agency Engagement</li><li>Member pricing benefit</li></ul><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="ticket-btn gold-btn">Register as Member →</a></div>
+      <div class="ticket-card"><div class="ticket-type">Non-Member</div><div class="ticket-price"><sup>$</sup>295</div><div class="ticket-note">per person</div><div class="ticket-div"></div><ul class="ticket-features"><li>Full-day Summit access</li><li>All 10 Sessions</li><li>Networking Breakfast</li><li>Networking Lunch</li><li>Vendor Exhibit Access</li><li>Direct Agency Engagement</li><li>Open to all professionals</li></ul><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="ticket-btn">Register Now →</a></div>
+      <div class="ticket-card" style="border-top-color:var(--teal3);"><div class="ticket-type">Become a Member</div><div class="ticket-price" style="font-size:36px;margin-top:8px;color:var(--teal3);">Save $100</div><div class="ticket-note">on Summit registration + year-round benefits</div><div class="ticket-div" style="background:var(--teal3);"></div><ul class="ticket-features"><li>$195 member ticket rate</li><li>Labor relations support</li><li>Political advocacy</li><li>HR resources &amp; tools</li><li>Safety &amp; regulatory services</li><li>Industry networking events</li></ul><a href="https://www.unitedcontractors.org/who-we-are/contact-us" target="_blank" class="ticket-btn" style="background:var(--teal);color:#fff;">Contact Us About Membership →</a></div>
+    </div>
+  </div></section>
+  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- ===== SPONSOR ===== -->
+<div id="page-sponsor" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Sponsorship Opportunities</h1><p>Position your brand with California's senior public works audience · Deadline: May 7, 2026</p></div></div>
+  <section><div class="container">
+    <div class="section-label"><div class="section-label-line"></div><span>Why Sponsor</span></div>
+    <h2 class="section-title">Reach California's Public Works<br>Decision-Makers</h2>
+    <p class="section-sub">The Public Works Summit delivers unmatched access to a senior, influential audience. Sponsorships sell out — act early.</p>
+    <div style="background:rgba(184,154,90,.08);border:1px solid rgba(184,154,90,.2);border-radius:4px;padding:14px 20px;margin:28px 0;font-size:14px;color:#8a7040;">⚠️ <strong style="color:var(--gold2);">Sponsorship Deadline: May 7, 2026.</strong> Many exclusive sponsorships sell out before the deadline. <a onclick="window.location.href='mailto:sponsorship@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);text-decoration:underline;">Contact us today.</a></div>
+    <div class="sponsor-grid">
+      <div class="spon-card exclusive" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Welcome Sponsor</div><div class="spon-price">$10,000</div><span class="spon-status exclusive">Exclusive</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>6 event tickets</li><li>Welcome attendees during Opening Session</li><li>Company logo on all session room signage</li><li>Full-page ad in the program</li><li>Display table with branded items</li></ul>
+      </div>
+      <div class="spon-card sold" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Hospitality Sponsor</div><div class="spon-price">$10,000</div><span class="spon-status sold">Sold Out</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>6 event tickets</li><li>Exclusive recognition at breakfast and lunch</li><li>Opportunity to introduce 1 session</li><li>Full-page ad in the program</li><li>Display table with branded items</li></ul>
+        <div class="spon-logos"><a href="https://www.lecetsouthwest.org/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1_YjDdrQgvCbHQGKstgjyK0VtuSF6V-MO&sz=w160" alt="LIUNA / LECET Southwest"></a><span class="spon-logo-text">LECET Southwest</span></div>
+      </div>
+      <div class="spon-card sold" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Registration Sponsor</div><div class="spon-price">$10,000</div><span class="spon-status sold">Sold Out</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>6 event tickets</li><li>Company logo at registration table &amp; signage</li><li>Logo on all attendees' lanyards</li><li>Opportunity to introduce 1 session</li><li>Full-page ad in the program</li></ul>
+        <div class="spon-logos"><a href="https://cementmasons500.org/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1p_-69UDrjNE33ONeL_bKcnnoJu-0e8tU&sz=w160" alt="Southern California Cement Masons Negotiating Committee"></a><span class="spon-logo-text">SoCal Cement Masons Negotiating Committee</span></div>
+      </div>
+      <div class="spon-card exclusive" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">WiFi Sponsor</div><div class="spon-price">$5,000</div><span class="spon-status exclusive">Exclusive</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>2 event tickets</li><li>Company name used as WiFi password</li><li>½ page ad in the Summit program</li><li>Recognition in Know Before You Go email</li></ul>
+      </div>
+      <div class="spon-card exclusive" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">To Go Snack Sponsor</div><div class="spon-price">$5,000</div><span class="spon-status exclusive">Exclusive</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>2 event tickets</li><li>Logo on to-go snack bag</li><li>½ page ad in the Summit program</li></ul>
+      </div>
+      <div class="spon-card available" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Vendor Display Table</div><div class="spon-price">$3,000</div><span class="spon-status available">7 of 10 Available</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>3 event tickets</li><li>Display table with branded items</li><li>6-ft table, black linen, 2 chairs, pop-up display space</li><li>Dedicated visibility during high-traffic breaks and networking periods, ideal for meaningful, face-to-face engagement with attendees</li></ul>
+        <div class="spon-logos"><a href="https://www.hcss.com/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1x8RqKXlLEYXJbzNlFLQ38ws4uhdcvrjL&sz=w160" alt="HCSS"></a><a href="https://www.trenchshoring.com/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=10r8QAYemf-VUDvvaS_y0_p6zs_a0yKyc&sz=w160" alt="Trench Shoring Company"></a><a href="https://www.carnolaw.com/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1EKnE3DqUjd8XHIS-iqgmQ9rCOwypEq3D&sz=w160" alt="Carno Law Group"></a></div>
+      </div>
+      <div class="spon-card available" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Quarter Page Ad Sponsor</div><div class="spon-price">$2,500</div><span class="spon-status available">10 Available</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>2 event tickets</li><li>Quarter page ad in the Summit program</li></ul>
+      </div>
+      <div class="spon-card available" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Refreshment Sponsor</div><div class="spon-price">$1,500</div><span class="spon-status available">2 of 4 Available</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>Business card sized ad in the Summit program</li><li>Company logo on hydration and coffee stations</li></ul>
+        <div class="spon-logos"><a href="https://rebuildsocal.org/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1TbJQ3aW-C4MpBJgqLsxvllFXASr6iHUK&sz=w160" alt="Rebuild SoCal Partnership"></a><a href="https://www.kiewit.com/" target="_blank" rel="noopener noreferrer"><img class="spon-logo-img" src="https://drive.google.com/thumbnail?id=1N-7w-j9xpM-WnkfmRcyEa6avFf7_2xzq&sz=w160" alt="Kiewit Infrastructure West Co."></a></div>
+      </div>
+      <div class="spon-card available" onclick="window.open('https://www.unitedcontractors.org/event-registration/2026-public-works-summit-sponsorship-registration','_blank')" role="link" tabindex="0">
+        <div class="spon-tier-name">Business Card Sponsor</div><div class="spon-price">$850</div><span class="spon-status available">Available</span><div class="spon-divider"></div>
+        <ul class="spon-perks"><li>Business card sized ad in the Summit program</li></ul>
+      </div>
+    </div>
+
+    <div style="background:rgba(0,129,138,.07);border:1px solid rgba(0,129,138,.2);border-radius:4px;padding:16px 20px;margin-bottom:36px;font-size:14px;color:#9acaca;line-height:1.7;"><strong style="color:#fff;">Sponsorship Policy:</strong> Sponsorship is available to <strong style="color:var(--teal3);">UCON members and partners only.</strong> Sponsorships close 3 weeks prior to the event.</div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:60px;">
+      <a onclick="window.location.href='mailto:sponsorship@unitedcontractors.org'" style="cursor:pointer;" class="btn-outline" style="display:inline-block;color:#fff;">Contact Us About Sponsoring</a>
+    </div>
+
+
+  </div></section>
+
+  <section style="padding:60px 0;"><div class="container">
+    <div class="section-label"><div class="section-label-line"></div><span>2026 Annual Sponsors</span></div>
+    <div style="margin-bottom:28px;"><div class="tier-lbl">Platinum Annual Sponsors</div><img src="https://i.imgur.com/EAfywEs.png" style="width:100%;height:auto;display:block;margin-top:8px;" alt="Platinum Annual Sponsors"></div>
+    <div style="margin-bottom:28px;"><div class="tier-lbl">Gold Annual Sponsors</div><img src="https://i.imgur.com/OVJadLc.png" style="width:100%;height:auto;display:block;margin-top:8px;" alt="Gold Annual Sponsors"></div>
+    <div style="margin-bottom:28px;"><div class="tier-lbl">Silver Annual Sponsors</div><img src="https://i.imgur.com/zrG5CzA.png" style="width:100%;height:auto;display:block;margin-top:8px;" alt="Silver Annual Sponsors"></div>
+    <div style="text-align:center;margin-top:36px;margin-bottom:12px;">
+      <a href="https://www.unitedcontractors.org/ucons-annual-sponsor-program-0" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--gold2);color:#000;font-size:17px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:20px 48px;border-radius:4px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#c9a84c'" onmouseout="this.style.background='var(--gold2)'">More Information on UCON's Annual Sponsor Program →</a>
+    </div>
+  </div></section>
+
+  <div class="cta-block"><h2>Become a Sponsor</h2><p>Position your brand with California's senior public works audience</p><div class="cta-inner"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- ===== PHOTOS ===== -->
+<div id="page-photos" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Summit Photos</h1><p>Relive the energy, connections, and moments from the 2025 Public Works Summit</p></div></div>
+  <section><div class="container">
+    <div class="section-label"><div class="section-label-line"></div><span>2025 Summit Gallery</span></div>
+    <h2 class="section-title">2025 Public Works Summit in Photos</h2>
+    <div class="photo-mosaic">
+      <div class="p-tile wide" style="background:url('https://drive.google.com/thumbnail?id=1cLcI6x3kPj5gRFwvvq56miqo5GeNgHqD&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1g0xaOtR8ggjU4gvzVOpCnF3alW4nIzsP&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1L4D_T3uLpf8O6Wx1s7g86kersmXEqxGx&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1qO9VPJlFm01YsOi9UJXMlUH17e1zU6YE&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1fADVLrKlS5UVOH2_K7dS702dDHGuU3yt&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile wide" style="background:url('https://drive.google.com/thumbnail?id=1EK0SSKVxCOYCFHPL3WSs4YL7Pmakquxo&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1L95_qd2ndxqcBrU8q1C2stG7wMQsHgsl&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1ZXRBzwOZQ3Fm0pUkeizkteRzgpe5uwO7&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=127QtdIFojvajKirkGxhKumMQCpYD4U3m&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=13UhK21XVeQoFIRcAEqS3pCDEr05PmgNS&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1Y6D0FG7v4vuGfs3Wx2g_Hz7QSyhkAbGD&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile wide" style="background:url('https://drive.google.com/thumbnail?id=1cnlyB7GIFYcvfHO3U3BJV0gGE2IHcR1T&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1GxNfO-EcY1ejqlPoWPvYwgTF9853uJLC&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=19u00vaERwhgQj0eNoVHIxoFLbDcgaX9C&sz=w800') center center/cover no-repeat;"></div>
+      <div class="p-tile" style="background:url('https://drive.google.com/thumbnail?id=1oiVrhrcOieJp0Am0ZgcHs__dCPpz5dan&sz=w800') center center/cover no-repeat;"></div>
+    </div><div style="text-align:center;margin-top:36px;">
+      <a href="https://www.breslowimaging.com/Business/United-Contractors/2025-Public-Works-Summit" target="_blank" class="btn-gold" style="display:inline-block;">📷 View Full Photo Album — Breslow Imaging →</a>
+    </div>
+    <div style="background:var(--black2);border:1px solid rgba(0,129,138,.15);border-radius:8px;padding:40px;margin-top:48px;text-align:center;">
+      <div style="font-size:32px;opacity:.5;margin-bottom:12px;">📱</div>
+      <h3 style="font-size:20px;font-weight:900;text-transform:uppercase;margin-bottom:10px;">Get Your Photos Automatically</h3>
+      <p style="font-size:14px;color:#9acaca;max-width:480px;margin:0 auto 24px;line-height:1.7;">Sign up for <strong style="color:var(--teal3);">Spot My Photos</strong> and receive every photo you appear in automatically delivered to your phone or email.</p>
+      <div style="display:inline-block;border:1px dashed rgba(0,129,138,.3);padding:24px 32px;border-radius:6px;">
+        <img src="https://drive.google.com/thumbnail?id=1OuuqPKUmI69RMx1tvZ0kPiY_QhflJ9ux&sz=w300" alt="Spot My Photos QR Code" style="width:150px;height:150px;object-fit:contain;display:block;margin:0 auto 12px;">
+        <p style="font-size:11px;color:#9acaca;letter-spacing:1px;text-transform:uppercase;">Scan to sign up</p>
+      </div>
+    </div>
+  </div></section>
+  <div class="cta-block"><h2>Join Us May 28</h2><p>Be part of the 2026 summit</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- ===== MEDIA KIT ===== -->
+<div id="page-media" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Media Kit</h1><p>Assets, press releases, and branded materials for the 2026 Public Works Summit</p></div></div>
+  <section><div class="container">
+    <div class="section-label"><div class="section-label-line"></div><span>Press &amp; Media</span></div>
+    <h2 class="section-title">2026 Public Works Summit Media Resources</h2>
+    <p class="section-sub">All media assets for press coverage, social sharing, and event promotion. For media inquiries, contact <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);">events@unitedcontractors.org</a>.</p>
+    <div style="background:var(--black2);border:1px solid rgba(0,129,138,.15);border-radius:6px;padding:32px;margin-top:36px;margin-bottom:36px;">
+      <h3 style="font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;color:var(--teal3);">About the Event</h3>
+      <p style="font-size:15px;color:#9acaca;line-height:1.8;margin-bottom:12px;">On May 28, 2026, California's contractors, public works agencies, and industry leaders converge at the Hilton Anaheim for UCON's 5th Annual Public Works Summit — the state's premier one-day event connecting the people who plan, fund, and build California's infrastructure.</p>
+      <p style="font-size:14px;color:#9acaca;line-height:1.8;font-style:italic;">"The Public Works Summit puts California's contractors face-to-face with the agencies shaping the state's infrastructure future." — Emily Cohen, CEO, United Contractors</p>
+    </div>
+    <div class="section-label"><div class="section-label-line"></div><span>Downloadable Assets</span></div>
+    <h3 style="font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:20px;margin-top:8px;">Press &amp; Promotional Materials</h3>
+    <div class="asset-grid">
+      <div class="asset-card"><div class="asset-icon">📝</div><div class="asset-name">Press Release</div><div class="asset-type">DOCX</div><div style="margin-top:12px;"><a href="https://docs.google.com/document/d/1oRsm0mUjlCawivTQALNy8WGnmzxGaiZ_/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Open Document →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">📰</div><div class="asset-name">Press Release</div><div class="asset-type">PDF</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1dUuNjqAE0jA4YJK0XErQkh2MwsBuTVex" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download PDF →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">📣</div><div class="asset-name">Event Flyer</div><div class="asset-type">PDF</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1najeWDhkAcHU0Bx0aug6s-yJkv9qZxWq" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download Flyer →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">🔗</div><div class="asset-name">LinkedIn Banner</div><div class="asset-type">PNG · 1020×440</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=18xK_VhOeuZAVZe7JjX7cmvVAU1LtZYJt" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">🎯</div><div class="asset-name">Event Banner</div><div class="asset-type">PNG · 1020×440</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1pqEt1TqJE9K6ZoBySELCCzuL2NwMMtI7" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">📲</div><div class="asset-name">Social Graphic</div><div class="asset-type">JPG · 350×650</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1DaBRP_-n1C0NtMjxvFCC5WerDhptdUzg" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">🏗️</div><div class="asset-name">Summit Banner</div><div class="asset-type">JPG</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1_8m5kp0UXmV03acjTTYfRJq_llI6mh21" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download →</a></div></div>
+      <div class="asset-card"><div class="asset-icon">📐</div><div class="asset-name">Leaderboard Banner</div><div class="asset-type">JPG · 728×90</div><div style="margin-top:12px;"><a href="https://drive.google.com/uc?export=download&id=1bRXt9Dl8jpXbZjkmjE9oZwz8nFYG5nFS" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:4px;">Download →</a></div></div>
+    </div>
+    <div style="background:var(--black2);border:1px solid rgba(0,129,138,.15);border-radius:4px;padding:16px 22px;margin-bottom:48px;font-size:14px;color:#9acaca;">📩 To request media assets or for press inquiries, email <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-weight:600;">events@unitedcontractors.org</a></div>
+    <div class="section-label"><div class="section-label-line"></div><span>Spread the Word</span></div>
+    <h3 style="font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:8px;margin-top:8px;">Share On Social Media</h3>
+    <p style="font-size:15px;color:#9acaca;margin-bottom:20px;">Just copy and paste!</p>
+    <div style="background:var(--black2);border:1px solid rgba(0,129,138,.15);border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:var(--black3);border-left:3px solid var(--teal3);padding:20px 24px;border-radius:0 4px 4px 0;">
+        <p style="font-size:17px;color:#e0f4f4;line-height:1.8;font-style:italic;margin-bottom:16px;">Proud to participate in @United Contractors 2026 Public Works Summit on May 28 at the Hilton Anaheim. Join California's public works leaders, agencies, and contractors for a day focused on connection, collaboration, and the future of our industry. #PublicWorksSummit #UCON #CaliforniaBuilds</p>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#0077B5;color:#fff;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:10px 20px;border-radius:4px;text-decoration:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Post on LinkedIn
+        </a>
+      </div>
+      <div style="background:var(--black3);border-left:3px solid var(--gold2);padding:20px 24px;border-radius:0 4px 4px 0;">
+        <p style="font-size:17px;color:#e0f4f4;line-height:1.8;font-style:italic;margin-bottom:16px;">We're heading to @United Contractors 2026 Public Works Summit. Looking forward to connecting face to face with the agencies and contractors building California's infrastructure on May 28 in Anaheim. #PublicWorks #Infrastructure #CaliforniaBuilds</p>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#0077B5;color:#fff;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:10px 20px;border-radius:4px;text-decoration:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Post on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div></section>
+  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p></div><div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="page-faq" class="page">
+  <div class="page-hero"><div class="page-hero-content"><h1>Frequently Asked Questions</h1><p>Everything you need to know about the 2026 Public Works Summit</p></div></div>
+  <section><div class="container" style="max-width:860px;">
+    <div class="acc-group">
+      <div class="acc-group-title">About the Summit</div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">What is the UCON Public Works Summit?<span class="acc-chev">▼</span></button><div class="acc-body">The UCON Public Works Summit is a premier convening of California's public works community, bringing together contractors, public agencies, unions, and industry partners for insight, collaboration, and relationship building. Now in its 5th year, it is the state's must-attend event for anyone working in California's public infrastructure sector.</div></div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">When and where is the 2026 Summit?<span class="acc-chev">▼</span></button><div class="acc-body">Thursday, May 28, 2026 · 7:00 AM – 4:00 PM PDT<br><br><strong>Hilton Anaheim</strong> · 777 W. Convention Way, Anaheim, CA 92802<br><br>Breakfast and lunch are provided.</div></div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">Do I need to be a UCON member to attend?<span class="acc-chev">▼</span></button><div class="acc-body">No. The Summit is open to members and non-members alike. However, UCON members enjoy a discounted ticket price of $195 vs. $295 for non-members.</div></div>
+    </div>
+    <div class="acc-group">
+      <div class="acc-group-title">Registration &amp; Pricing</div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">How do I register?<span class="acc-chev">▼</span></button><div class="acc-body"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank">Register here →</a></div></div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">What does registration cost?<span class="acc-chev">▼</span></button><div class="acc-body">UCON Member tickets are <strong>$195</strong> per person. Non-member pricing is <strong>$295</strong> per person. Public agency representatives may be eligible for complimentary attendance.</div></div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">What does registration include?<span class="acc-chev">▼</span></button><div class="acc-body">Full-day access to all Summit programming, sessions, networking, hosted breakfast and lunch, and vendor exhibit.</div></div>
+    </div>
+    <div class="acc-group">
+      <div class="acc-group-title">Travel &amp; Accommodations</div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">Is there a hotel room block?<span class="acc-chev">▼</span></button><div class="acc-body">Yes! A discounted room block is available at the <strong>Hilton Anaheim</strong> for <strong>$203/night</strong>. <a href="https://book.passkey.com/gt/221068762?gtid=2af17d2fab654a6ccd1b564976f79aef" target="_blank">Reserve your room here →</a><br><br>⚠️ The room block closes on <strong>May 6, 2026</strong>.</div></div>
+    </div>
+    <div class="acc-group">
+      <div class="acc-group-title">Speakers &amp; Sponsorship</div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">Are sponsorship opportunities available?<span class="acc-chev">▼</span></button><div class="acc-body">Yes. <a href="#" onclick="showPage('sponsor');return false;">Learn more about sponsorship here →</a></div></div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">When is the sponsorship deadline?<span class="acc-chev">▼</span></button><div class="acc-body">The sponsorship deadline is <strong>May 7, 2026</strong>.</div></div>
+    </div>
+    <div class="acc-group">
+      <div class="acc-group-title">Contact</div>
+      <div class="acc-item"><button class="acc-hdr" onclick="toggleAcc(this)" aria-expanded="false">Who do I contact for event questions?<span class="acc-chev">▼</span></button><div class="acc-body">📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a> · 📞 (925) 855-7900<br><br><strong>Christine Traina</strong>, Events Manager — <a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">ctraina@unitedcontractors.org</a> · (925) 309-5503<br><br><strong>Anna Carno</strong>, Event Chair — <a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;">acarno@unitedcontractors.org</a> · (714) 293-3687</div></div>
+    </div>
+  </div></section>
+
+  <div class="cta-block"><h2>Still Have Questions?</h2><p>Our team is happy to help</p><div class="cta-inner"><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;" class="btn-white">Email Us</a><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+
+  <!-- Anna Carno large panel -->
+  <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;">(714) 293-3687</a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
+
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>UCON Public Works Summit 2026</h3><p>California's premier gathering of the public works community.</p><p>📧 <a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><br>📞 (925) 855-7900</p></div><div class="footer-col"><h4>Navigate</h4><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('program')">Program</a><a href="#" onclick="showPage('tickets')">Tickets</a><a href="#" onclick="showPage('sponsor')">Sponsor</a><a href="#" onclick="showPage('photos')">Photos</a><a href="#" onclick="showPage('media')">Media Kit</a><a href="#" onclick="showPage('faq')">FAQ</a></div><div class="footer-col"><h4>About</h4><a href="https://www.unitedcontractors.org" target="_blank">About UCON ↗</a><a href="https://www.unitedcontractors.org/who-we-are/ucon-team" target="_blank">Meet the UCON Team ↗</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('agencies').scrollIntoView({behavior:'smooth'}),100)">Agencies</a><a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('why-attend').scrollIntoView({behavior:'smooth'}),100)">Why Attend</a></div><div class="footer-col"><h4>Contact</h4><a onclick="window.location.href='mailto:events@unitedcontractors.org'" style="cursor:pointer;">events@unitedcontractors.org</a><a onclick="window.location.href='mailto:ctraina@unitedcontractors.org'" style="cursor:pointer;">Christine Traina · Events Mgr</a></div></div><div class="footer-bottom">© 2026 United Contractors (UCON). All rights reserved. · <a href="https://www.unitedcontractors.org" target="_blank">unitedcontractors.org</a></div></div></footer>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="formContent">
+      <h2>Stay in the Loop</h2>
+      <p>Sign up for updates about the 2026 Public Works Summit.</p>
+      <div class="form-row">
+        <div class="form-group"><label>First Name *</label><input type="text" id="fFirst" placeholder="First name"></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" id="fLast" placeholder="Last name"></div>
+      </div>
+      <div class="form-group"><label>Company Name *</label><input type="text" id="fCompany" placeholder="Your organization"></div>
+      <div class="form-group"><label>Title</label><input type="text" id="fTitle" placeholder="Your title"></div>
+      <div class="form-group"><label>Email Address *</label><input type="email" id="fEmail" placeholder="your@email.com"></div>
+      <button class="form-submit" onclick="submitForm()">Subscribe to Updates →</button>
+    </div>
+    <div class="form-success" id="formSuccess" tabindex="-1">
+      <div class="check">✅</div>
+      <h3>You're on the list!</h3>
+      <p style="color:#9acaca;font-size:14px;">We'll keep you updated on the 2026 Public Works Summit.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
