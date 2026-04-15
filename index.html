@@ -424,8 +424,32 @@ document.addEventListener('click', function(e){
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   var el=document.getElementById('page-'+id);
-  if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  if(el){
+    el.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    var anchorMap={home:'home',program:'program',tickets:'tickets',sponsor:'sponsor',photos:'photos',media:'media-kit',faq:'faq'};
+    var anchor=anchorMap[id]||id;
+    history.pushState(null,null,'#'+anchor);
+  }
 }
+// On page load, check for hash and show correct page
+window.addEventListener('DOMContentLoaded',function(){
+  var hash=window.location.hash.replace('#','');
+  var reverseMap={'home':'home','program':'program','tickets':'tickets','sponsor':'sponsor','photos':'photos','media-kit':'media','faq':'faq'};
+  if(hash && reverseMap[hash]){
+    showPage(reverseMap[hash]);
+  }
+});
+// Handle back/forward browser navigation
+window.addEventListener('popstate',function(){
+  var hash=window.location.hash.replace('#','');
+  var reverseMap={'home':'home','program':'program','tickets':'tickets','sponsor':'sponsor','photos':'photos','media-kit':'media','faq':'faq'};
+  if(hash && reverseMap[hash]){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    var el=document.getElementById('page-'+reverseMap[hash]);
+    if(el) el.classList.add('active');
+  }
+});
 // Countdown - wrapped in DOMContentLoaded so elements exist
 document.addEventListener('DOMContentLoaded',function(){
   function updateCountdown(){
