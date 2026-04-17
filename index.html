@@ -569,9 +569,26 @@ function openBio(name, imgSrc, initials){
   }
   document.getElementById('bioModal').classList.add('open');
 }
+function toggleCal(el){ el.classList.toggle("open"); document.addEventListener("click", function c(e){ if(!el.contains(e.target)){ el.classList.remove("open"); document.removeEventListener("click",c); } }); }
 function closeBio(){
   document.getElementById('bioModal').classList.remove('open');
 }
+
+
+// ACTIVE NAV HIGHLIGHTING
+function setActiveNav(id){
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if(b.getAttribute('onclick') && b.getAttribute('onclick').includes("'"+id+"'")){
+      b.classList.add('active');
+    }
+  });
+}
+var _origShowPage = showPage;
+showPage = function(id){
+  _origShowPage(id);
+  setActiveNav(id);
+};
 
 function copyPost(btn, text){
   navigator.clipboard.writeText(text).then(function(){
@@ -610,11 +627,6 @@ function toggleAcc(btn){
   }
 }
 
-  document.getElementById('formContent').style.display='none';
-  var success=document.getElementById('formSuccess');
-  success.style.display='block';
-  success.focus();
-}
 </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZQG10PD58"></script>
@@ -924,7 +936,7 @@ function toggleAcc(btn){
         <div class="speaker-card" onclick="openBio('Shaun Shahrestani', '', 'SS')" title="Click for bio"><div class="speaker-avatar">SS</div><h4>Shaun Shahrestani</h4><div class="org">Port of Los Angeles</div></div>
         <div class="speaker-card" onclick="openBio('Jon Switalski', 'https://i.imgur.com/JMUb2n6.jpeg', 'JO')" title="Click for bio"><div class="speaker-avatar"><img src="https://i.imgur.com/JMUb2n6.jpeg" alt="Jon Switalski"></div><h4>Jon Switalski</h4><div class="org">Rebuild SoCal Partnership</div></div>
         <div class="speaker-card" onclick="openBio('Sarah Tacker', 'https://i.imgur.com/hRmzotT.jpeg', 'ST')" title="Click for bio"><div class="speaker-avatar">ST</div><h4>Sarah Tacker</h4></div>
-        <div class="speaker-card" onclick="openBio('Sarah Tacker', 'https://i.imgur.com/hRmzotT.jpeg', 'ST')" title="Click for bio"><div class="speaker-avatar"><img src="https://i.imgur.com/hRmzotT.jpeg" alt="Kiana Valentine"></div><h4>Kiana Valentine</h4><div class="org">Politico Group</div></div>
+        <div class="speaker-card" onclick="openBio('Kiana Valentine', 'https://i.imgur.com/hRmzotT.jpeg', 'KV')" title="Click for bio"><div class="speaker-avatar"><img src="https://i.imgur.com/hRmzotT.jpeg" alt="Kiana Valentine"></div><h4>Kiana Valentine</h4><div class="org">Politico Group</div></div>
         <div class="speaker-card" onclick="openBio('Elizabeth Torrez', '', 'ET')" title="Click for bio"><div class="speaker-avatar">ET</div><h4>Elizabeth Torrez</h4><div class="org">Tenna</div></div>
         <div class="speaker-card" onclick="openBio('Charley Wilson', 'https://i.imgur.com/drYo5PM.jpeg', 'CH')" title="Click for bio"><div class="speaker-avatar"><img src="https://i.imgur.com/drYo5PM.jpeg" alt="Charley Wilson"></div><h4>Charley Wilson</h4><div class="org">SoCal Water Coalition</div></div>
         <div class="speaker-card" onclick="openBio('John Yang', 'https://i.imgur.com/tA5BA9l.jpeg', 'JO')" title="Click for bio"><div class="speaker-avatar"><img src="https://i.imgur.com/tA5BA9l.jpeg" alt="John Yang"></div><h4>John Yang</h4><div class="org">Caltrans 7
