@@ -609,19 +609,7 @@ function toggleAcc(btn){
     body.classList.add('open');
   }
 }
-function openModal(){
-  document.getElementById('modal').classList.add('open');
-  document.querySelector('.modal-close').focus();
-}
-function closeModal(){document.getElementById('modal').classList.remove('open');}
-function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal();}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-function submitForm(){
-  var first=document.getElementById('fFirst').value.trim();
-  var last=document.getElementById('fLast').value.trim();
-  var email=document.getElementById('fEmail').value.trim();
-  var company=document.getElementById('fCompany').value.trim();
-  if(!first||!last||!email||!company){alert('Please fill in all required fields.');return;}
+
   document.getElementById('formContent').style.display='none';
   var success=document.getElementById('formSuccess');
   success.style.display='block';
@@ -742,16 +730,6 @@ function submitForm(){
     <div class="stat-item"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 10px;display:block;"><path d="M26 6l4 12h13l-10 8 4 12-11-8-11 8 4-12-10-8h13z" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><div class="stat-num">#1</div><div class="stat-label">Public Works Event in CA</div></div>
   </div>
 
-  <div style="text-align:center;padding:24px 0 0;">
-    <div class="cal-dropdown" style="display:inline-block;" onclick="toggleCal(this)">
-      <button class="cal-btn">📅 Add to Calendar ▾</button>
-      <div class="cal-menu">
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=UCON+2026+Public+Works+Summit&dates=20260528T140000Z/20260528T230000Z&details=California%27s+premier+public+works+gathering&location=Hilton+Anaheim%2C+777+W.+Convention+Way%2C+Anaheim%2C+CA+92802" target="_blank">Google Calendar</a>
-        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260528T140000Z%0ADTEND:20260528T230000Z%0ASUMMARY:UCON+2026+Public+Works+Summit%0ALOCATION:Hilton+Anaheim%0AEND:VEVENT%0AEND:VCALENDAR" download="UCON_2026_Summit.ics">Apple / Outlook (.ics)</a>
-      </div>
-    </div>
-  </div>
-
   <div class="countdown-section">
     <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span>Summit Countdown</span><div class="section-eyebrow-line"></div></div>
     <div class="cd-grid">
@@ -856,7 +834,7 @@ function submitForm(){
     <h2>Ready to Be Part of It?</h2>
     <p>May 28, 2026 · Hilton Anaheim · Breakfast &amp; Lunch Provided</p>
     <div class="cta-inner">
-      <button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button>
+      
       <a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a>
     </div>
   </div>
@@ -956,7 +934,7 @@ function submitForm(){
     </div>
   </section>
 
-  <div class="cta-block"><h2>Secure Your Seat Today</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Get Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+  <div class="cta-block"><h2>Secure Your Seat Today</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
 
 
   
@@ -990,7 +968,7 @@ function submitForm(){
     </div>
   </div></section>
 
-  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
 
   
   
@@ -1117,7 +1095,7 @@ function submitForm(){
       </div>
     </div>
   </div></section>
-  <div class="cta-block"><h2>Join Us May 28</h2><p>Be part of the 2026 summit</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+  <div class="cta-block"><h2>Join Us May 28</h2><p>Be part of the 2026 summit</p><div class="cta-inner"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
 
   
   <!-- Anna Carno large panel -->
@@ -1172,7 +1150,7 @@ function submitForm(){
       </div>
     </div>
   </div></section>
-  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><button class="btn-white" onclick="openModal()">✉️ Sign Up for Updates</button><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
+  <div class="cta-block"><h2>Ready to Register?</h2><p>May 28, 2026 · Hilton Anaheim</p><div class="cta-inner"><a href="https://www.unitedcontractors.org/event-registration/2026-public-works-summit-registration" target="_blank" class="btn-cta-gold">Register Now →</a></div></div>
 
   <!-- Anna Carno large panel -->
   <div style="background:#0d1a1a;padding:48px 0;border-top:2px solid rgba(0,196,208,.25);border-bottom:2px solid rgba(0,196,208,.25);"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;"><div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;"><img src="https://i.imgur.com/jIYtIzC.jpeg" alt="Anna Carno, Event Chair" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(0,196,208,.4);flex-shrink:0;"><div><p style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal3);font-weight:700;margin-bottom:6px;">Event Chair</p><p style="font-size:28px;font-weight:900;color:#fff;margin-bottom:4px;">Anna Carno <span style="font-size:16px;font-weight:400;color:#c8e8e8;">· Carno Law Group</span></p><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;"><a onclick="window.location.href='mailto:acarno@unitedcontractors.org'" style="cursor:pointer;" style="color:var(--teal3);font-size:16px;font-weight:600;">acarno@unitedcontractors.org</a><a href="tel:+17142933687" style="color:var(--teal3);font-size:16px;font-weight:600;"><a href="tel:+17142933687" style="color:inherit;">(714) 293-3687</a></a></div></div></div><button onclick="window.location.href='mailto:acarno@unitedcontractors.org'" class="btn-gold" style="flex-shrink:0;font-size:14px;padding:16px 32px;">Contact Anna →</button></div></div>
@@ -1235,30 +1213,5 @@ function submitForm(){
 
 <!-- SCROLL TO TOP -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="formContent">
-      <h2>Stay in the Loop</h2>
-      <p>Sign up for updates about the 2026 Public Works Summit.</p>
-      <div class="form-row">
-        <div class="form-group"><label>First Name *</label><input type="text" id="fFirst" placeholder="First name"></div>
-        <div class="form-group"><label>Last Name *</label><input type="text" id="fLast" placeholder="Last name"></div>
-      </div>
-      <div class="form-group"><label>Company Name *</label><input type="text" id="fCompany" placeholder="Your organization"></div>
-      <div class="form-group"><label>Title</label><input type="text" id="fTitle" placeholder="Your title"></div>
-      <div class="form-group"><label>Email Address *</label><input type="email" id="fEmail" placeholder="your@email.com"></div>
-      <button class="form-submit" onclick="submitForm()">Subscribe to Updates →</button>
-    </div>
-    <div class="form-success" id="formSuccess" tabindex="-1">
-      <div class="check">✅</div>
-      <h3>You're on the list!</h3>
-      <p style="color:#9acaca;font-size:14px;">We'll keep you updated on the 2026 Public Works Summit.</p>
-    </div>
-  </div>
-</div>
-
 
 </html>
